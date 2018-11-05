@@ -11,6 +11,9 @@ import UIKit
 class TodoListViewController: UITableViewController {
     
     var itemArray = [Item]()
+    
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
+    
     // reusable cell methond makes the check mark reappear at the bottom whent he cell disappear on the top of the screen
     // this is becuase the checkmark is cell property, we need to assciate the checkmark with the data in the cell not the cell
     // instead of array we can use a Dictionnay, a better solution is to create a data model
@@ -19,24 +22,15 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newItem = Item()
-        newItem.title = "Find Mike"
-        itemArray.append(newItem)
+        print(dataFilePath!)
         
-        let newItem2 = Item()
-        newItem2.title = "Buy Eggos"
-        itemArray.append(newItem2)
-        
-        let newItem3 = Item()
-        newItem3.title = "Destroyer"
-        itemArray.append(newItem3)
-        
+        loadItems()
         
         // enables the app to look into the app sandbox for the simulator and garb data on load
-        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
-          itemArray = items
-            
-        }
+//        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
+//          itemArray = items
+//
+//        }
     }
 
     //MARK - Tableview Datasource Methods
@@ -84,7 +78,7 @@ class TodoListViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        tableView.reloadData()
+        self.saveItems()
     
     }
     
@@ -103,9 +97,8 @@ class TodoListViewController: UITableViewController {
             
             self.itemArray.append(newItem)
             
-            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+            self.saveItems()
             
-            self.tableView.reloadData()
         }
         
         alert.addTextField { (alertTextField) in
@@ -117,6 +110,34 @@ class TodoListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //MARK - Model Manipulation Methods
+    
+    func saveItems() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding item, \(error)")
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    func loadItems() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("Error decoding it")
+            }
+        }
+        
+        
+    }
     
 }
 
