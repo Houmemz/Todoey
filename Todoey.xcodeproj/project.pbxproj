@@ -15,6 +15,7 @@
 		C84279A5213D7A96004B1D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84279A3213D7A96004B1D59 /* LaunchScreen.storyboard */; };
 		C8D9CE0421A5A86C00025681 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9CE0321A5A86C00025681 /* Item.swift */; };
 		C8D9CE0621A5A87800025681 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9CE0521A5A87800025681 /* Category.swift */; };
+		C8D9CE6B21AEA28700025681 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9CE6A21AEA28700025681 /* SwipeTableViewController.swift */; };
 		C8DAFED02199C339002DF2A5 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DAFECF2199C339002DF2A5 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		C84279A6213D7A96004B1D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8D9CE0321A5A86C00025681 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C8D9CE0521A5A87800025681 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		C8D9CE6A21AEA28700025681 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		C8DAFECF2199C339002DF2A5 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		D36B82705D0F81D270B847AC /* Pods-Todoey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todoey/Pods-Todoey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C8DAFECF2199C339002DF2A5 /* CategoryViewController.swift */,
+				C8D9CE6A21AEA28700025681 /* SwipeTableViewController.swift */,
 				C842799C213D7A93004B1D59 /* TodoListViewController.swift */,
 			);
 			path = Controllers;
@@ -226,6 +229,7 @@
 				C8DAFED02199C339002DF2A5 /* CategoryViewController.swift in Sources */,
 				C842799D213D7A93004B1D59 /* TodoListViewController.swift in Sources */,
 				C842799B213D7A93004B1D59 /* AppDelegate.swift in Sources */,
+				C8D9CE6B21AEA28700025681 /* SwipeTableViewController.swift in Sources */,
 				C8D9CE0621A5A87800025681 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
